@@ -1,7 +1,6 @@
 import React from 'react';
-
+import axios from 'axios';
 import RatingsAndReviewsSect from './RatingsAndReviewsSect/RatingsAndReviewsSect.jsx';
-import OverviewSect from './OverviewSect/OverviewSect.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,34 +9,35 @@ class App extends React.Component {
       id: 23202,
       avgRating: 0,
       productInfo: {},
-      styleInfo: {}
     };
-    this.changePage = this.changePage.bind(this);
     this.getAverageRating = this.getAverageRating.bind(this);
-    this.getProductInfo = this.getProductInfo.bind(this);
-    this.getStyleInfo = this.getStyleInfo.bind(this);
   };
 
-  changePage(newid) {
-    this.setState({id: newid})
+  getProduct(id) {
+    axios.get('/overview/products/:', {
+      params: { product_id: this.state.id }
+    })
+      .then((response) => {
+        this.setState({
+          productInfo: Object.assign(this.state.productInfo, response.data)
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   getAverageRating(average) {
     this.setState({avgRating: average})
   }
 
-  getProductInfo(someInfo) {
-    this.setState({productInfo: someInfo})
-  }
-
-  getStyleInfo(styleInfo) {
-    this.setState({styleInfo: styleInfo})
+  componentDidMount() {
+    this.getProduct();
   }
 
   render() {
     return (
       <div>
-        <OverviewSect id={this.state.id} getProductInfo={this.getProductInfo} getStyleInfo={this.getStyleInfo} />
         <RatingsAndReviewsSect id={this.state.id} getAverageRating={this.getAverageRating} productName={this.state.productInfo.name} />
       </div>
     );
