@@ -7,7 +7,9 @@
   width: 66%;
   height: 100%;
   margin: auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  border-top: 1px solid black;
+  margin-top: 2em;
 }
 
 .row {
@@ -25,7 +27,7 @@
 }
 
 .sectionTitle {
-  margin: 0px;
+  margin: 2em 0 0 0;
   font-size: 1.5em;
   font-weight: lighter;
 }
@@ -128,7 +130,8 @@
 
 .barFill {
   height: .4em;
-  background-color: #f25c54;
+  /* background-color: #f25c54; */
+  background-color: black;
 }
 
 .bar {
@@ -164,7 +167,8 @@
   height: 0;
   border-style: solid;
   border-width: 20px 10px 0 10px;
-  border-color: #f25c54 transparent transparent transparent;
+  /* border-color: #f25c54 transparent transparent transparent; */
+  border-color: black transparent transparent transparent;
   z-index: 10;
 }
 
