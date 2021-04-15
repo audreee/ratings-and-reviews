@@ -1,3 +1,4 @@
+![alt-text](https://github.com/audreee/ratings-and-reviews/blob/master/reviews.gif)
 # Project Catwalk: Ratings & Reviews
 
 ## What Is It?
